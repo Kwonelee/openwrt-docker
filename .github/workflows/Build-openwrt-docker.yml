@@ -59,11 +59,7 @@ jobs:
         sed -i "s/版本号/${{ steps.version.outputs.branch }}/g" "./arm64/${{ steps.version.outputs.source }}/files/etc/uci-defaults/99_z_custom.sh"
         cp arm64/${{ steps.version.outputs.source }}/build24.sh imagebuilder/
         cp -r arm64/${{ steps.version.outputs.source }}/files imagebuilder/
-        if [[ "${{ steps.version.outputs.source }}" == "istoreos" ]]; then
-          find arm64/packages/ -name "*.ipk" -exec cp {} imagebuilder/packages/ \;
-        elif [[ "${{ steps.version.outputs.source }}" == "openwrt" ]]; then
-          find arm64/packages/ -name "*.apk" -exec cp {} imagebuilder/packages/ \;
-        fi
+        find arm64/packages/ -name "*.apk" -exec cp {} imagebuilder/packages/ \;
         
         cd imagebuilder
         sed -i 's/# CONFIG_TARGET_ROOTFS_TARGZ is not set/CONFIG_TARGET_ROOTFS_TARGZ=y/' .config
