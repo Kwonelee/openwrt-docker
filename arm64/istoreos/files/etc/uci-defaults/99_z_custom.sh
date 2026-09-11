@@ -5,10 +5,10 @@
 uci set luci.main.lang='zh_cn'
 
 # 设置版本信息
-#FILE_PATH="/etc/openwrt_release"
-#NEW_DESCRIPTION="iStoreOS 版本号 @kwonelee"
-#sed -i "s/^DISTRIB_REVISION=.*/DISTRIB_REVISION=''/" "$FILE_PATH"
-#sed -i "s#^DISTRIB_DESCRIPTION=.*#DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'#" "$FILE_PATH"
+FILE_PATH="/etc/openwrt_release"
+NEW_DESCRIPTION="iStoreOS 版本号 @kwonelee"
+sed -i "s/^DISTRIB_REVISION=.*/DISTRIB_REVISION=''/" "$FILE_PATH"
+sed -i "s#^DISTRIB_DESCRIPTION=.*#DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'#" "$FILE_PATH"
 
 # 关闭 IPv6 AAAA 记录过滤
 uci set dhcp.@dnsmasq[0].filter_aaaa='0'
