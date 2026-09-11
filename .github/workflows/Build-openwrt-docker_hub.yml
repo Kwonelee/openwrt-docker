@@ -64,7 +64,7 @@ jobs:
         cp arm64/${{ steps.version.outputs.source }}/build24.sh imagebuilder/
         cp -r arm64/${{ steps.version.outputs.source }}/files imagebuilder/
         if [[ "${{ steps.version.outputs.source }}" == "istoreos" ]]; then
-          find arm64/packages/ -name "*.ipk" -exec cp {} imagebuilder/packages/ \;
+          find arm64/packages/ -name "*.apk" ! -name "*argon*" -exec cp {} imagebuilder/packages/ \;
         elif [[ "${{ steps.version.outputs.source }}" == "openwrt" ]]; then
           find arm64/packages/ -name "*.apk" -exec cp {} imagebuilder/packages/ \;
         fi
