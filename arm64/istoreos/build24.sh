@@ -39,7 +39,7 @@ PACKAGES="$PACKAGES \
 -mkf2fs -partx-utils"
 # 继续优化：移除指令是你的“愿望清单”，依赖关系是系统的“底线规则”
 PACKAGES="$PACKAGES -block-mount -fdisk -lsblk -mdadm"
-PACKAGES="$PACKAGES -mtd -urngd -fstools"
+PACKAGES="$PACKAGES -mtd -urandom-seed -urngd -fstools"
 PACKAGES="$PACKAGES -kmod-nft-offload -ppp -ppp-mod-pppoe"
 
 # 构建镜像
