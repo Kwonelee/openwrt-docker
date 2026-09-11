@@ -5,10 +5,10 @@ on:
       build_version:
         description: "1、请选择构建版本"
         required: true
-        default: 'istoreos-24.10.8'
+        default: 'istoreos-25.12.5'
         type: choice
         options:
-          - 'istoreos-24.10.8'
+          - 'istoreos-25.12.5'
           - 'openwrt-25.12.5'
           - 'immortalwrt-25.12.1'
 
@@ -49,7 +49,7 @@ jobs:
         SOURCE="${{ steps.version.outputs.source }}"
         BRANCH="${{ steps.version.outputs.branch }}"
         if [[ "${SOURCE}" == "istoreos" ]]; then
-          DOWNLOAD_URL="https://github.com/Kwonelee/iStoreOS-Actions/releases/download/iStoreOS-ImageBuilder/20260731-istoreos-imagebuilder-armsr-armv8.Linux-x86_64.tar.zst"
+          DOWNLOAD_URL="https://github.com/Kwonelee/iStoreOS-Actions/releases/download/iStoreOS-ImageBuilder/20260911-istoreos-imagebuilder-armsr-armv8.Linux-x86_64.tar.zst"
           else
           DOWNLOAD_URL="https://downloads.${SOURCE}.org/releases/${BRANCH}/targets/armsr/armv8/${SOURCE}-imagebuilder-${BRANCH}-armsr-armv8.Linux-x86_64.tar.zst"
         fi
