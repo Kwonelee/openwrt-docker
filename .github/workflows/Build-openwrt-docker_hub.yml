@@ -49,7 +49,7 @@ jobs:
         SOURCE="${{ steps.version.outputs.source }}"
         BRANCH="${{ steps.version.outputs.branch }}"
         if [[ "${SOURCE}" == "istoreos" ]]; then
-          DOWNLOAD_URL="https://github.com/Kwonelee/iStoreOS-Actions/releases/download/iStoreOS-ImageBuilder/20260911-istoreos-imagebuilder-armsr-armv8.Linux-x86_64.tar.zst"
+          DOWNLOAD_URL="https://github.com/Kwonelee/iStoreOS-Actions/releases/download/iStoreOS-ImageBuilder/20260924-istoreos-imagebuilder-armsr-armv8.Linux-x86_64.tar.zst"
           else
           DOWNLOAD_URL="https://downloads.${SOURCE}.org/releases/${BRANCH}/targets/armsr/armv8/${SOURCE}-imagebuilder-${BRANCH}-armsr-armv8.Linux-x86_64.tar.zst"
         fi
