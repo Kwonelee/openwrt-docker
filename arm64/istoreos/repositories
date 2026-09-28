@@ -1,5 +1,1 @@
-
-## This is the local package repository, do not remove!
-src imagebuilder file:packages
-
-option check_signature
+file:///home/runner/work/openwrt-docker/openwrt-docker/imagebuilder/packages/packages.adb
