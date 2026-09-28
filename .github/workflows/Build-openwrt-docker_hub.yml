@@ -62,6 +62,7 @@ jobs:
       run: |
         sed -i "s/版本号/${{ steps.version.outputs.branch }}/g" "./arm64/${{ steps.version.outputs.source }}/files/etc/uci-defaults/99_z_custom.sh"
         cp arm64/${{ steps.version.outputs.source }}/build24.sh imagebuilder/
+        cp arm64/${{ steps.version.outputs.source }}/repositories imagebuilder/ 2>/dev/null || true
         cp -r arm64/${{ steps.version.outputs.source }}/files imagebuilder/
         if [[ "${{ steps.version.outputs.source }}" == "istoreos" ]]; then
           find arm64/packages/ -name "*.apk" ! -name "*argon*" -exec cp {} imagebuilder/packages/ \;
