@@ -109,6 +109,12 @@ networks:
 > 
 > **"您的每一个⭐️，都是开源土壤里的一缕阳光，让灵感发芽，让创造生长~"**
 
+## 🎉 Thanks
+- [istoreos](https://github.com/istoreos/istoreos)
+- [openwrt](https://github.com/openwrt/openwrt)
+- [immortalwrt](https://github.com/immortalwrt/immortalwrt)
+- [lede](https://github.com/coolsnowwolf/lede)
+
 ## 🙏 免责声明
 - 📚 本固件仅供学习研究，严禁用于任何商业用途
 - 🤝 使用本固件产生的所有后果均由使用者自行承担
