@@ -10,7 +10,7 @@ on:
         options:
           - 'istoreos-25.12.5'
           - 'openwrt-25.12.5'
-          - 'immortalwrt-25.12.1'
+          - 'immortalwrt-25.12.2'
 
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
