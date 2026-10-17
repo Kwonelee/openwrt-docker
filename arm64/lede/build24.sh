@@ -21,6 +21,7 @@ PACKAGES="$PACKAGES luci-app-upnp"
 PACKAGES="$PACKAGES nikki"
 PACKAGES="$PACKAGES luci-app-nikki"
 # 深度优化：Docker环境下共享宿主机内核，不需要任何内核模块
+PACKAGES="$PACKAGES -procd-seccomp"
 
 # 继续优化：移除指令是你的“愿望清单”，依赖关系是系统的“底线规则”
 
