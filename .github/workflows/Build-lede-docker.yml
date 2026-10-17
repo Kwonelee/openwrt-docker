@@ -46,7 +46,7 @@ jobs:
         SOURCE="${{ steps.version.outputs.source }}"
         BRANCH="${{ steps.version.outputs.branch }}"
         if [[ "${SOURCE}" == "lede" ]]; then
-          DOWNLOAD_URL="https://github.com/Kwonelee/LEDE-Native/releases/download/2026.10.18-00.18-ARMv8/openwrt-imagebuilder-armsr-armv8.Linux-x86_64.tar.xz"
+          DOWNLOAD_URL="https://github.com/Kwonelee/LEDE-Native/releases/download/LEDE-ImageBuilde/openwrt-imagebuilder-armsr-armv8.Linux-x86_64.tar.xz"
           else
           DOWNLOAD_URL="https://downloads.${SOURCE}.org/releases/${BRANCH}/targets/armsr/armv8/${SOURCE}-imagebuilder-${BRANCH}-armsr-armv8.Linux-x86_64.tar.zst"
         fi
