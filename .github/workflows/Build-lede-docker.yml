@@ -51,8 +51,8 @@ jobs:
           DOWNLOAD_URL="https://downloads.${SOURCE}.org/releases/${BRANCH}/targets/armsr/armv8/${SOURCE}-imagebuilder-${BRANCH}-armsr-armv8.Linux-x86_64.tar.zst"
         fi
         echo "✅ 下载地址: ${DOWNLOAD_URL}"
-        curl -L -o imagebuilder.tar.zst "${DOWNLOAD_URL}"
-        tar --use-compress-program=unzstd -xvf imagebuilder.tar.zst
+        curl -L -o imagebuilder.tar.xz "${DOWNLOAD_URL}"
+        tar --use-compress-program=unxz -xvf imagebuilder.tar.xz
         mv -f *-imagebuilder-* imagebuilder
 
     - name: 📋 配置构建环境
