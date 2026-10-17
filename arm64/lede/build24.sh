@@ -16,10 +16,9 @@ PACKAGES="$PACKAGES luci-i18n-package-manager-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-firewall-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-ramfree-zh-cn"
-PACKAGES="$PACKAGES luci-app-cpufreq"
-PACKAGES="$PACKAGES luci-app-upnp"
-PACKAGES="$PACKAGES nikki"
-PACKAGES="$PACKAGES luci-app-nikki"
+PACKAGES="$PACKAGES luci-i18n-cpufreq-zh-cn"
+PACKAGES="$PACKAGES luci-i18n-upnp-zh-cn"
+PACKAGES="$PACKAGES luci-i18n-nikki-zh-cn"
 # 深度优化：Docker环境下共享宿主机内核，不需要任何内核模块
 PACKAGES="$PACKAGES -procd-seccomp"
 
