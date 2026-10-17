@@ -11,6 +11,7 @@ PACKAGES=""
 # 精简集成列表
 PACKAGES="dnsmasq-full firewall4 -dnsmasq -firewall"
 PACKAGES="$PACKAGES luci"
+PACKAGES="$PACKAGES autocore"
 PACKAGES="$PACKAGES luci-i18n-base-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-package-manager-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
