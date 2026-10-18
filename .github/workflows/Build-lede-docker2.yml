@@ -1,4 +1,4 @@
-name: Build LEDE Docker image
+name: Build LEDE Docker2 image
 on:
   workflow_dispatch:
     inputs:
