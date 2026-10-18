@@ -28,58 +28,23 @@ jobs:
         echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
         echo "✅ 源: ${SOURCE}, 分支: ${BRANCH}"
 
-    - name: ⚙️ 设置权限
-      run: | 
-        chmod +x arm64/${{ steps.version.outputs.source }}/build24.sh
-
     - name: 📦 安装依赖
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential libncurses5-dev zstd curl unzip tree
 
-    - name: ⏬ 下载 ImageBuilder
+    - name: ⏬ 下载 Rootfs
       id: download
       run: |
-        SOURCE="${{ steps.version.outputs.source }}"
-        BRANCH="${{ steps.version.outputs.branch }}"
-        if [[ "${SOURCE}" == "lede" ]]; then
-          DOWNLOAD_URL="https://github.com/Kwonelee/LEDE-Native/releases/download/LEDE-ImageBuilde/openwrt-imagebuilder-armsr-armv8.Linux-x86_64.tar.xz"
-          else
-          DOWNLOAD_URL="https://downloads.${SOURCE}.org/releases/${BRANCH}/targets/armsr/armv8/${SOURCE}-imagebuilder-${BRANCH}-armsr-armv8.Linux-x86_64.tar.zst"
-        fi
-        echo "✅ 下载地址: ${DOWNLOAD_URL}"
-        curl -L -o imagebuilder.tar.xz "${DOWNLOAD_URL}"
-        tar --use-compress-program=unxz -xvf imagebuilder.tar.xz
-        mv -f *-imagebuilder-* imagebuilder
-
-    - name: 📋 配置构建环境
-      run: |
-        #sed -i "s/版本号/${{ steps.version.outputs.branch }}/g" "./arm64/${{ steps.version.outputs.source }}/files/etc/uci-defaults/99_z_custom.sh"
-        cp arm64/${{ steps.version.outputs.source }}/build24.sh imagebuilder/
-        cp arm64/${{ steps.version.outputs.source }}/repositories imagebuilder/ 2>/dev/null || true
-        #cp -r arm64/${{ steps.version.outputs.source }}/files imagebuilder/
-        #if [[ "${{ steps.version.outputs.source }}" == "istoreos" ]]; then
-          #find arm64/packages/ -name "*.apk" ! -name "*argon*" -exec cp {} imagebuilder/packages/ \;
-        #elif [[ "${{ steps.version.outputs.source }}" == "openwrt" ]]; then
-          #find arm64/packages/ -name "*.apk" -exec cp {} imagebuilder/packages/ \;
-        #fi
-        
-        cd imagebuilder
-        sed -i 's/# CONFIG_TARGET_ROOTFS_TARGZ is not set/CONFIG_TARGET_ROOTFS_TARGZ=y/' .config
-        sed -i "s|CONFIG_TARGET_ROOTFS_CPIOGZ=.*|# CONFIG_TARGET_ROOTFS_CPIOGZ is not set|g" .config
-        sed -i "s|CONFIG_TARGET_ROOTFS_EXT4FS=.*|# CONFIG_TARGET_ROOTFS_EXT4FS is not set|g" .config
-        sed -i "s|CONFIG_TARGET_ROOTFS_SQUASHFS=.*|# CONFIG_TARGET_ROOTFS_SQUASHFS is not set|g" .config
-        sed -i "s|CONFIG_TARGET_IMAGES_GZIP=.*|# CONFIG_TARGET_IMAGES_GZIP is not set|g" .config
-
-    - name: 🧱 构建 Rootfs
-      working-directory: ./imagebuilder
-      run: bash ./build24.sh
+        DOWNLOAD_URL="https://github.com/Kwonelee/LEDE-Native/releases/download/LEDE-ImageBuilde/openwrt-armsr-armv8-generic-rootfs.tar.gz"
+        curl -L -o generic-rootfs.tar.gz "${DOWNLOAD_URL}"
+        mv -f *-rootfs-* rootfs
 
     - name: 🐳 构建 Docker 镜像
       id: docker_build
       run: |
         # 查找 rootfs 文件
-        ROOTFS_FILE=$(find imagebuilder/bin/targets/armsr/armv8/ -name "*generic-rootfs.tar.gz" | head -1)
+        ROOTFS_FILE=$(find rootfs/ -name "*generic-rootfs.tar.gz" | head -1)
         
         # 生成镜像标签
         IMAGE_TAG="${{ steps.version.outputs.branch }}"
