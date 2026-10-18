@@ -8,10 +8,7 @@ on:
         default: 'lede-25.12'
         type: choice
         options:
-          - 'istoreos-25.12.5'
-          - 'openwrt-25.12.5'
           - 'lede-25.12'
-          - 'immortalwrt-25.12.2'
 
 jobs:
   build:
