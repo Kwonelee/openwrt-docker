@@ -41,7 +41,7 @@ jobs:
         if [[ "${SOURCE}" == "lede" ]]; then
           DOWNLOAD_URL="https://github.com/Kwonelee/LEDE-Native/releases/download/LEDE-ImageBuilde/openwrt-armsr-armv8-generic-rootfs.tar.gz"
           else
-          DOWNLOAD_URL="https://github.com/sbwml/builder/releases/download/v25.12.5-minimal/openwrt-25.12.5-armsr-armv8-generic-rootfs.tar.gz"
+          DOWNLOAD_URL="https://github.com/sbwml/builder/releases/download/v25.12.5-standard/openwrt-25.12.5-armsr-armv8-generic-rootfs.tar.gz"
         fi
         echo "✅ 下载地址: ${DOWNLOAD_URL}"
         curl -L -o generic-rootfs.tar.gz "${DOWNLOAD_URL}"
