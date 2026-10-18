@@ -38,13 +38,12 @@ jobs:
       run: |
         DOWNLOAD_URL="https://github.com/Kwonelee/LEDE-Native/releases/download/LEDE-ImageBuilde/openwrt-armsr-armv8-generic-rootfs.tar.gz"
         curl -L -o generic-rootfs.tar.gz "${DOWNLOAD_URL}"
-        mv -f *-rootfs.* rootfs
 
     - name: 🐳 构建 Docker 镜像
       id: docker_build
       run: |
         # 查找 rootfs 文件
-        ROOTFS_FILE=$(find rootfs/ -name "*generic-rootfs.tar.gz" | head -1)
+        ROOTFS_FILE="generic-rootfs.tar.gz"
         
         # 生成镜像标签
         IMAGE_TAG="${{ steps.version.outputs.branch }}"
