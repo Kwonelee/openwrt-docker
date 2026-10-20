@@ -9,7 +9,7 @@ on:
         type: choice
         options:
           - 'istoreos-25.12.5'
-          - 'openwrt-25.12.5'
+          - 'openwrt-25.12.6'
           - 'immortalwrt-25.12.2'
 
 jobs:
