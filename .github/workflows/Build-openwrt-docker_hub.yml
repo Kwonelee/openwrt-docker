@@ -5,10 +5,10 @@ on:
       build_version:
         description: "1、请选择构建版本"
         required: true
-        default: 'istoreos-25.12.5'
+        default: 'istoreos-25.12.6'
         type: choice
         options:
-          - 'istoreos-25.12.5'
+          - 'istoreos-25.12.6'
           - 'openwrt-25.12.6'
           - 'immortalwrt-25.12.2'
 
